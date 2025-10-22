@@ -8,7 +8,7 @@ function App() {
   return (
     <>
     <Toaster />
-     <BrowserRouter>
+     <BrowserRouter basename="/dipesh-portfolio">
      <Routes>
       <Route index element={<Home />} />
       <Route path="*" element={<NotFound />} />
