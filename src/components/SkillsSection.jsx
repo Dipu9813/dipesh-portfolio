@@ -76,25 +76,25 @@ export const SkillsSection = () => {
                     <Dock 
                         items={[
                             {
-                                icon: <Layers size={28} className={activeCategory === "all" ? "text-primary" : "text-white"} />,
+                                icon: <Layers size={28} className={activeCategory === "all" ? "text-primary" : "text-foreground"} />,
                                 label: 'All',
                                 onClick: () => setActiveCategory("all"),
                                 className: activeCategory === "all" ? "ring-2 ring-primary" : ""
                             },
                             {
-                                icon: <Monitor size={28} className={activeCategory === "frontend" ? "text-primary" : "text-white"} />,
+                                icon: <Monitor size={28} className={activeCategory === "frontend" ? "text-primary" : "text-foreground"} />,
                                 label: 'Frontend',
                                 onClick: () => setActiveCategory("frontend"),
                                 className: activeCategory === "frontend" ? "ring-2 ring-primary" : ""
                             },
                             {
-                                icon: <Server size={28} className={activeCategory === "backend" ? "text-primary" : "text-white"} />,
+                                icon: <Server size={28} className={activeCategory === "backend" ? "text-primary" : "text-foreground"} />,
                                 label: 'Backend',
                                 onClick: () => setActiveCategory("backend"),
                                 className: activeCategory === "backend" ? "ring-2 ring-primary" : ""
                             },
                             {
-                                icon: <Wrench size={28} className={activeCategory === "tools" ? "text-primary" : "text-white"} />,
+                                icon: <Wrench size={28} className={activeCategory === "tools" ? "text-primary" : "text-foreground"} />,
                                 label: 'Tools',
                                 onClick: () => setActiveCategory("tools"),
                                 className: activeCategory === "tools" ? "ring-2 ring-primary" : ""

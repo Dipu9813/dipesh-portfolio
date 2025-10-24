@@ -12,10 +12,15 @@
   width: fit-content;
   gap: 1rem;
   border-radius: 1rem;
-  background-color: hsl(var(--card));
+  background: linear-gradient(180deg, hsl(var(--card) / 0.8), hsl(var(--card) / 0.95));
   border: 1px solid hsl(var(--border));
   padding: 0 0.5rem 0.5rem;
   margin: 0 auto;
+  backdrop-filter: blur(20px);
+  box-shadow: 
+    0 10px 25px -5px rgba(0, 0, 0, 0.1),
+    0 8px 10px -6px rgba(0, 0, 0, 0.1),
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.1);
 }
 
 .dock-item {
@@ -24,24 +29,42 @@
   align-items: center;
   justify-content: center;
   border-radius: 10px;
-  background-color: hsl(var(--primary) / 0.1);
+  background: linear-gradient(135deg, hsl(var(--primary) / 0.15), hsl(var(--primary) / 0.05));
   border: 1px solid hsl(var(--primary) / 0.3);
   box-shadow:
     0 4px 6px -1px rgba(0, 0, 0, 0.1),
-    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    0 2px 4px -1px rgba(0, 0, 0, 0.06),
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.1);
   cursor: pointer;
   outline: none;
-  transition: background-color 0.2s;
+  transition: all 0.3s;
+  backdrop-filter: blur(10px);
 }
 
 .dock-item:hover {
-  background-color: hsl(var(--primary) / 0.2);
+  background: linear-gradient(135deg, hsl(var(--primary) / 0.25), hsl(var(--primary) / 0.15));
+  border-color: hsl(var(--primary) / 0.5);
+  box-shadow:
+    0 8px 12px -2px rgba(0, 0, 0, 0.15),
+    0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.2),
+    0 0 20px hsl(var(--primary) / 0.3);
 }
 
 .dock-icon {
   display: flex;
   align-items: center;
   justify-content: center;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+}
+
+/* Icon colors for light/dark theme */
+.dark .dock-icon {
+  filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.3));
+}
+
+.dock-item:hover .dock-icon {
+  filter: drop-shadow(0 4px 8px hsl(var(--primary) / 0.4));
 }
 
 .dock-label {

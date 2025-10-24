@@ -94,17 +94,17 @@ export const ContactSection = () => {
                                 <Dock 
                                     items={[
                                         {
-                                            icon: <Linkedin size={28} className="text-white" />,
+                                            icon: <Linkedin size={28} className="text-foreground" />,
                                             label: 'LinkedIn',
                                             onClick: () => window.open('https://www.linkedin.com/in/dipesh--singh/', '_blank')
                                         },
                                         {
-                                            icon: <Facebook size={28} className="text-white" />,
+                                            icon: <Facebook size={28} className="text-foreground" />,
                                             label: 'Facebook',
                                             onClick: () => window.open('https://www.facebook.com/dipesh.singh.50945', '_blank')
                                         },
                                         {
-                                            icon: <Instagram size={28} className="text-white" />,
+                                            icon: <Instagram size={28} className="text-foreground" />,
                                             label: 'Instagram',
                                             onClick: () => window.open('https://www.instagram.com/dipesh____singh/', '_blank')
                                         }
