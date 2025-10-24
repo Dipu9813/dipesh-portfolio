@@ -2,6 +2,8 @@ import { useState, useEffect, useRef } from "react";
 import { cn } from "@/lib/utils";
 import { FaHtml5, FaCss3Alt, FaJs, FaReact, FaNode, FaGitAlt, FaGithub, FaFigma, FaCode } from "react-icons/fa";
 import { SiTypescript, SiTailwindcss, SiExpress, SiMongodb } from "react-icons/si";
+import { Layers, Monitor, Server, Wrench } from "lucide-react";
+import Dock from "./Dock";
 
 const skills = [
     //Frontend
@@ -66,23 +68,43 @@ export const SkillsSection = () => {
     return (
         <section ref={sectionRef} id="skills" className="py-24 px-4 relative bg-secondary/30">
             <div className="container mx-auto max-w-5xl">
-                <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">
+                <h2 className="text-3xl md:text-4xl font-bold mb-8 text-center">
                     My <span className="text-primary"> Skills</span>
                 </h2>
 
-                <div className="flex flex-wrap justify-center gap-4 mb-12">
-                    {categories.map((category, key) => (
-                        <button
-                            key={key}
-                            onClick={() => setActiveCategory(category)}
-                            className={cn(
-                                "px-5 py-2 rounded-full transition-colors duration-300 capitalize",
-                                activeCategory === category ? "bg-primary text-primary-foreground" : "bg-secondary/70 text-foreground hover:bg-secondary"
-                            )}
-                        >
-                            {category}
-                        </button>
-                    ))}
+                <div className="relative h-28 flex items-center justify-center mb-12">
+                    <Dock 
+                        items={[
+                            {
+                                icon: <Layers size={28} className={activeCategory === "all" ? "text-primary" : "text-white"} />,
+                                label: 'All',
+                                onClick: () => setActiveCategory("all"),
+                                className: activeCategory === "all" ? "ring-2 ring-primary" : ""
+                            },
+                            {
+                                icon: <Monitor size={28} className={activeCategory === "frontend" ? "text-primary" : "text-white"} />,
+                                label: 'Frontend',
+                                onClick: () => setActiveCategory("frontend"),
+                                className: activeCategory === "frontend" ? "ring-2 ring-primary" : ""
+                            },
+                            {
+                                icon: <Server size={28} className={activeCategory === "backend" ? "text-primary" : "text-white"} />,
+                                label: 'Backend',
+                                onClick: () => setActiveCategory("backend"),
+                                className: activeCategory === "backend" ? "ring-2 ring-primary" : ""
+                            },
+                            {
+                                icon: <Wrench size={28} className={activeCategory === "tools" ? "text-primary" : "text-white"} />,
+                                label: 'Tools',
+                                onClick: () => setActiveCategory("tools"),
+                                className: activeCategory === "tools" ? "ring-2 ring-primary" : ""
+                            }
+                        ]}
+                        magnification={70}
+                        distance={180}
+                        baseItemSize={52}
+                        panelHeight={65}
+                    />
                 </div>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">

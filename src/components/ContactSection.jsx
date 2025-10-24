@@ -3,6 +3,7 @@ import { cn } from "@/lib/utils";
 import { useToast } from "@/hooks/use-toast";
 import { useState } from "react";
 import emailjs from 'emailjs-com';
+import Dock from "./Dock";
 
 export const ContactSection = () => {
     const { toast } = useToast();
@@ -88,17 +89,31 @@ export const ContactSection = () => {
 
                         </div>
                         <div className="pt-8">
-                            <h4 className="font-medium mb-4">Connect With Me</h4>
-                            <div className="flex space-x-4 justify-center">
-                                <a href="https://www.linkedin.com/in/dipesh--singh/" target="_blank">
-                                    <Linkedin />
-                                </a>
-                                <a href="https://www.facebook.com/dipesh.singh.50945" target="_blank">
-                                    <Facebook />
-                                </a>
-                                <a href="https://www.instagram.com/dipesh____singh/" target="_blank">
-                                    <Instagram />
-                                </a>
+                            <h4 className="font-medium mb-4 text-center">Connect With Me</h4>
+                            <div className="relative h-24 flex items-center justify-center">
+                                <Dock 
+                                    items={[
+                                        {
+                                            icon: <Linkedin size={28} className="text-white" />,
+                                            label: 'LinkedIn',
+                                            onClick: () => window.open('https://www.linkedin.com/in/dipesh--singh/', '_blank')
+                                        },
+                                        {
+                                            icon: <Facebook size={28} className="text-white" />,
+                                            label: 'Facebook',
+                                            onClick: () => window.open('https://www.facebook.com/dipesh.singh.50945', '_blank')
+                                        },
+                                        {
+                                            icon: <Instagram size={28} className="text-white" />,
+                                            label: 'Instagram',
+                                            onClick: () => window.open('https://www.instagram.com/dipesh____singh/', '_blank')
+                                        }
+                                    ]}
+                                    magnification={65}
+                                    distance={150}
+                                    baseItemSize={48}
+                                    panelHeight={60}
+                                />
                             </div>
                         </div>
                     </div>
