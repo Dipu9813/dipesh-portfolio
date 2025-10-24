@@ -1,5 +1,5 @@
 import { NavBar } from "../components/NavBar";
-import { StarBackground } from "../components/StarBackground";
+import { LightningBackground } from "../components/LightningBackground";
 import { ThemeToggle } from "../components/ThemeToggle";
 import { HomeSection } from "../components/HomeSection";
 import { AboutSection } from "../components/AboutSection";
@@ -13,7 +13,7 @@ export const Home = () => {
         {/* theme toggle */}
         <ThemeToggle />
         {/* background effects */}
-        <StarBackground />
+        <LightningBackground />
         {/* nav bar */}
         <NavBar />
         {/* nav bar */}
