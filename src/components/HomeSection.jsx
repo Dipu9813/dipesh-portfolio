@@ -24,7 +24,7 @@ export const HomeSection = () => {
             </h1>
 
             <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto lg:mx-0 opacity-0 animate-fade-in-delay-3">
-              I'm a passionate web developer specializing in creating modern,
+              I'm an AI/ML Enthusiast and a passionate web developer specializing in creating modern,
               responsive web applications.
             </p>
             <div className="pt-4 opacity-0 animate-fade-in-delay-4">
