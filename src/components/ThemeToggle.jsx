@@ -3,14 +3,21 @@ import { useState, useEffect } from "react";
 import {cn} from "@/lib/utils";
 
 export const ThemeToggle = () => {
-    const [isDarkMode, setIsDarkMode] = useState(false);
+    const [isDarkMode, setIsDarkMode] = useState(true);
+    
     useEffect(() => {
-        const storedTheme = localStorage.getItem("theme")
-        if (storedTheme === "dark") {
-            setIsDarkMode(true)
+        const storedTheme = localStorage.getItem("theme");
+        
+        // If no theme is stored, default to dark
+        if (!storedTheme) {
             document.documentElement.classList.add("dark");
+            localStorage.setItem("theme", "dark");
+            setIsDarkMode(true);
+        } else if (storedTheme === "dark") {
+            document.documentElement.classList.add("dark");
+            setIsDarkMode(true);
         } else {
-            localStorage.setItem("theme", "light");
+            document.documentElement.classList.remove("dark");
             setIsDarkMode(false);
         }
     }, []);
@@ -27,7 +34,8 @@ export const ThemeToggle = () => {
             setIsDarkMode(true);
         }
     };
-    return <button onClick={toggleTheme} className={cn("fixed top-5 right-5 md:right-5 right-16 z-50 p-2 rounded-full transition-colors duration-300 bg-background/80 backdrop-blur-sm border border-border hover:bg-accent",
+    
+    return <button onClick={toggleTheme} className={cn("fixed top-5 md:right-5 right-16 z-50 p-2 rounded-full transition-colors duration-300 bg-background/80 backdrop-blur-sm border border-border hover:bg-accent",
         "focus:outline-hidden"
     )}>{isDarkMode ? (<Sun className="h-6 w-6 text-yellow-300" />)
         :
