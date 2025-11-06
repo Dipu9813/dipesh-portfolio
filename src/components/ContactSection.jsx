@@ -80,7 +80,7 @@ export const ContactSection = () => {
                                 </div>
                                 <div>
                                     <h4 className="font-medium">Location</h4>
-                                    <a href="mailto:mail@singhdipesh.com.np"
+                                    <a href="mail@singhdipesh.com.np"
                                         className="text-muted-foreground hover:text-primary transition-colors duration-300">
                                         Imadol, Lalitpur, Nepal
                                     </a>

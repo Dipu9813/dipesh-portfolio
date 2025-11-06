@@ -1,0 +1,86 @@
+/* ShinyText Component Styles */
+.shiny-text {
+  position: relative;
+  display: inline-block;
+  font-weight: inherit;
+  background: linear-gradient(
+    110deg,
+    currentColor 20%,
+    #9333ea 40%,
+    #e879f9 50%,
+    #9333ea 60%,
+    currentColor 80%
+  );
+  background-size: 200% auto;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shine var(--animation-duration, 5s) linear infinite;
+  will-change: background-position;
+}
+
+.dark .shiny-text {
+  background: linear-gradient(
+    110deg,
+    currentColor 20%,
+    #a855f7 40%,
+    #f0abfc 50%,
+    #a855f7 60%,
+    currentColor 80%
+  );
+  background-size: 200% auto;
+  background-clip: text;
+  -webkit-background-clip: text;
+}
+
+.shiny-text-disabled {
+  animation: none;
+  background: currentColor;
+  -webkit-text-fill-color: currentColor;
+}
+
+@keyframes shine {
+  0% {
+    background-position: -200% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
+
+/* Alternative effect with mouse interaction */
+.shiny-text.interactive {
+  background: radial-gradient(
+    circle at var(--x, 50%) var(--y, 50%),
+    hsl(var(--primary)) 0%,
+    transparent 50%
+  ),
+  linear-gradient(
+    90deg,
+    currentColor 0%,
+    currentColor 40%,
+    hsl(var(--primary)) 50%,
+    currentColor 60%,
+    currentColor 100%
+  );
+  background-size: 200% 200%, 200% auto;
+  background-clip: text;
+  -webkit-background-clip: text;
+}
+
+/* Hover effect */
+.shiny-text:hover {
+  animation-duration: 1.5s;
+}
+
+/* Ensure visibility */
+.shiny-text:not(.shiny-text-disabled) {
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
+  -webkit-background-clip: text !important;
+}
+
+/* Dark theme adjustments */
+.dark .shiny-text {
+  filter: brightness(1.2);
+}
