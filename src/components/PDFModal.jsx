@@ -48,7 +48,7 @@ export const PDFModal = () => {
             Check Out My PDF
           </h2>
           <p className="text-gray-600 dark:text-gray-300 mb-6">
-            View my probability PDF document
+            You should obey your teacher and complete your task on time instead of wasting time and then relying on me🥱
           </p>
           
           <button
