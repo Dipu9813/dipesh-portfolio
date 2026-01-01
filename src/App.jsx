@@ -3,11 +3,13 @@ import { Home } from "./pages/Home"
 import { NotFound } from "./pages/NotFound"
 import { Toaster } from "@/components/ui/toaster"
 import { PDFModal } from "@/components/PDFModal"
+import { StructuredData } from "@/components/StructuredData"
 
 function App() {
 
   return (
     <>
+    <StructuredData />
     <Toaster />
     <PDFModal />
      <BrowserRouter basename="/">
