@@ -13,7 +13,7 @@ export const PDFModal = () => {
   }, []);
 
   const handleRedirect = () => {
-    window.open('https://pdf.singhdipesh.com.np', '_blank');
+    window.open('https://pdf1.singhdipesh.com.np', '_blank');
     setIsOpen(false);
   };
 
@@ -48,7 +48,7 @@ export const PDFModal = () => {
             Check Out My PDF
           </h2>
           <p className="text-gray-600 dark:text-gray-300 mb-6">
-            You should obey your teacher and complete your task on time instead of wasting time and then relying on me🥱
+            There you go niggas, enjoy😘
           </p>
           
           <button

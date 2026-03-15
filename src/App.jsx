@@ -1,7 +1,8 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom"
 import { Home } from "./pages/Home"
 import { NotFound } from "./pages/NotFound"
-import { Toaster } from "@/components/ui/toaster"
+import { Toaster } from "@/components/ui/toaster" 
+import { PDFModal } from "./components/PDFModal"
 import { StructuredData } from "@/components/StructuredData"
 
 function App() {
@@ -10,6 +11,7 @@ function App() {
     <>
     <StructuredData />
     <Toaster />
+    <PDFModal />
      <BrowserRouter basename="/">
      <Routes>
       <Route index element={<Home />} />
