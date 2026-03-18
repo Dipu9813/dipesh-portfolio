@@ -48,7 +48,7 @@ export const PDFModal = () => {
             Check Out My PDF
           </h2>
           <p className="text-gray-600 dark:text-gray-300 mb-6">
-            There you go niggas, enjoy😘
+            Probability and Statistics PDF is available for download. Click the button below to view it.
           </p>
           
           <button
