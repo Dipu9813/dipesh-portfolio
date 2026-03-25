@@ -16,6 +16,10 @@ export const PDFModal = () => {
     window.open('https://pdf1.singhdipesh.com.np', '_blank');
     setIsOpen(false);
   };
+  const handleRedirect1 = () => {
+    window.open('https://58ab5a3d-blue-poetry-a32e.dipruc06.workers.dev/', '_blank');
+    setIsOpen(false);
+  };
 
   const handleClose = () => {
     setIsOpen(false);
@@ -52,10 +56,16 @@ export const PDFModal = () => {
           </p>
           
           <button
-            onClick={handleRedirect}
+            onClick={handleRedirect1}
             className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-200 shadow-lg hover:shadow-xl"
           >
             Probability PDF
+          </button>
+           <button
+            onClick={handleRedirect}
+            className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-200 shadow-lg hover:shadow-xl mt-4"
+          >
+            Probability PDF 2
           </button>
         </div>
       </div>
