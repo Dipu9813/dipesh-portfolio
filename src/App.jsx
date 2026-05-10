@@ -11,7 +11,6 @@ function App() {
     <>
     <StructuredData />
     <Toaster />
-    <PDFModal />
      <BrowserRouter basename="/">
      <Routes>
       <Route index element={<Home />} />
