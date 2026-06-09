@@ -1,7 +1,6 @@
-import { useState, useEffect, useRef } from "react";
-import { cn } from "@/lib/utils";
+import { useState } from "react";
 import { FaHtml5, FaCss3Alt, FaJs, FaReact, FaNode, FaGitAlt, FaGithub, FaFigma, FaCode } from "react-icons/fa";
-import { SiTypescript, SiTailwindcss, SiExpress, SiMongodb } from "react-icons/si";
+import { SiTypescript, SiTailwindcss, SiExpress, SiMongodb, SiPostgresql } from "react-icons/si";
 import { Layers, Monitor, Server, Wrench } from "lucide-react";
 import Dock from "./Dock";
 
@@ -16,6 +15,7 @@ const skills = [
     { name: 'Node.js', level: 75, category: "backend", icon: FaNode },
     { name: 'Express', level: 70, category: "backend", icon: SiExpress },
     { name: 'MongoDB', level: 65, category: "backend", icon: SiMongodb },
+    { name: 'PostgreSQL', level: 65, category: "backend", icon: SiPostgresql },
 
     //Tools
     { name: 'Git', level: 80, category: "tools", icon: FaGitAlt },
@@ -24,49 +24,13 @@ const skills = [
     { name: 'VS Code', level: 95, category: "tools", icon: FaCode },
 ];
 
-const categories = ["all", "frontend", "backend", "tools"];
-
 export const SkillsSection = () => {
     const [activeCategory, setActiveCategory] = useState("all");
-    const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-    const [hoveredCard, setHoveredCard] = useState(null);
-    const [isVisible, setIsVisible] = useState(false);
-    const sectionRef = useRef(null);
 
     const filteredSkills = skills.filter(skill => activeCategory === "all" || skill.category === activeCategory);
 
-    useEffect(() => {
-        const observer = new IntersectionObserver(
-            ([entry]) => {
-                if (entry.isIntersecting) {
-                    setIsVisible(true);
-                }
-            },
-            { threshold: 0.2 }
-        );
-
-        if (sectionRef.current) {
-            observer.observe(sectionRef.current);
-        }
-
-        return () => {
-            if (sectionRef.current) {
-                observer.unobserve(sectionRef.current);
-            }
-        };
-    }, []);
-
-    const handleMouseMove = (e, index) => {
-        const rect = e.currentTarget.getBoundingClientRect();
-        setMousePosition({
-            x: e.clientX - rect.left,
-            y: e.clientY - rect.top
-        });
-        setHoveredCard(index);
-    };
-
     return (
-        <section ref={sectionRef} id="skills" className="py-24 px-4 relative bg-secondary/30">
+        <section id="skills" className="py-24 px-4 relative bg-secondary/30">
             <div className="container mx-auto max-w-5xl">
                 <h2 className="text-3xl md:text-4xl font-bold mb-8 text-center">
                     My <span className="text-primary"> Skills</span>
@@ -107,51 +71,16 @@ export const SkillsSection = () => {
                     />
                 </div>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div className="flex flex-wrap justify-center gap-4 sm:gap-5">
                     {filteredSkills.map((skill, key) => {
                         const Icon = skill.icon;
                         return (
                             <div
                                 key={key}
-                                className="relative bg-card p-6 rounded-lg border border-border/50 card-hover overflow-hidden group"
-                                onMouseMove={(e) => handleMouseMove(e, key)}
-                                onMouseLeave={() => setHoveredCard(null)}
+                                className="group flex items-center gap-3.5 px-8 py-4 rounded-full bg-card border border-border/50 card-hover hover:border-primary/50 hover:shadow-[0_0_20px_-4px_hsl(var(--primary)/0.4)] transition-all duration-300"
                             >
-                                {/* Spotlight effect on hover */}
-                                {hoveredCard === key && (
-                                    <div
-                                        className="absolute pointer-events-none transition-opacity duration-300"
-                                        style={{
-                                            background: `radial-gradient(circle 150px at ${mousePosition.x}px ${mousePosition.y}px, hsl(var(--primary) / 0.15), transparent)`,
-                                            top: 0,
-                                            left: 0,
-                                            right: 0,
-                                            bottom: 0,
-                                        }}
-                                    />
-                                )}
-
-                                <div className="relative z-10 flex items-center gap-3 mb-3">
-                                    <div className="relative">
-                                        <Icon className="h-8 w-8 text-muted-foreground group-hover:text-primary transition-colors duration-300" />
-                                    </div>
-                                    <h3 className="font-semibold text-lg">{skill.name}</h3>
-                                </div>
-
-                                <div className="relative z-10 w-full bg-secondary/50 h-2 rounded-full overflow-hidden">
-                                    <div
-                                        className="bg-primary h-2 rounded-full transition-all"
-                                        style={{ 
-                                            width: isVisible ? skill.level + "%" : "0%",
-                                            transition: 'width 1.5s ease-out',
-                                            transitionDelay: `${key * 0.1}s`
-                                        }}
-                                    />
-                                </div>
-
-                                <div className="relative z-10 text-right mt-1">
-                                    <span className="text-sm text-muted-foreground">{skill.level}%</span>
-                                </div>
+                                <Icon className="h-7 w-7 text-muted-foreground group-hover:text-primary transition-colors duration-300" />
+                                <span className="font-medium text-lg">{skill.name}</span>
                             </div>
                         );
                     })}
